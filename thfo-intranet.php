@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly.
 
-add_action( 'plugins_loaded', 'WPLeafletMap\define_constant' );
+add_action( 'plugins_loaded', 'ThfoIntranet\define_constant' );
 function define_constant() {
 	define( 'THFO_INTRANET_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 	define( 'THFO_INTRANET_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
@@ -31,7 +31,7 @@ function define_constant() {
 	define( 'THFO_INTRANET_CUST_INC', THFO_INTRANET_PLUGIN_PATH . 'inc/' );
 }
 
-add_action( 'plugins_loaded', 'WPLeafletMap\load_files' );
+add_action( 'plugins_loaded', 'ThfoIntranet\load_files' );
 function load_files() {
 
 	$files = scandir( THFO_INTRANET_PLUGIN_PATH . '/inc/' );
