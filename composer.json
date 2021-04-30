@@ -1,0 +1,36 @@
+{
+    "name": "thfo/intranet",
+    "type": "wordpress-plugin",
+    "description": "Intranet",
+    "keywords": [
+        "WordPress",
+        "Plugin"
+    ],
+    "homepage": "https://github.com/sebastienserre",
+
+    "require": {
+        "acf/advanced-custom-fields-pro": "^5.9.5"
+    },
+    "minimum-stability": "dev",
+    "repositories": {
+        "0": {
+            "type": "composer",
+            "url": "https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        },
+        "1": {
+            "type": "composer",
+            "url": "https://composer.thivinfo.com/"
+        }
+    },
+    "extra": {
+        "installer-paths": {
+            "./../../plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ]
+        }
+    }
+}
