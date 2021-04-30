@@ -5,7 +5,8 @@ use function add_shortcode;
 use function get_current_user_id;
 use function ob_get_clean;
 use function ob_start;
-use function ThfoIntranet\roles\has_access;
+use function ThfoIntranet\helpers\check_access;
+use function ThfoIntranet\helpers\has_access;
 use function wp_login_form;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,9 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_shortcode( 'intranet', 'ThfoIntranet\shortcode\intranet');
 function intranet(){
-	if ( ! has_access( get_current_user_id() ) ) {
-		return wp_login_form( array( 'echo' => false) );
-	}
+	check_access();
 
 	ob_start();
 	?>
