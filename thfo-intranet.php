@@ -1,12 +1,34 @@
 <?php
+
 namespace ThfoIntranet;
+
+use function add_action;
+use function add_filter;
+use function content_url;
 use function define;
+use function delete_option;
+use function file_exists;
+use function file_get_contents;
+use function file_put_contents;
+use function get_post;
+use function get_post_type;
 use function is_file;
+use function mc_activation_function;
+use function mkdir;
 use function plugin_dir_path;
 use function plugin_dir_url;
+use function preg_match;
 use function scandir;
 use function untrailingslashit;
+use function update_option;
+use function var_dump;
+use function wp_upload_dir;
+use const FILE_APPEND;
+use const LOCK_EX;
+use const MC_DIR_PATH;
 use const THFO_INTRANET_PLUGIN_PATH;
+use const THFO_MEDIA_UPLOAD;
+use const THFO_MEDIA_UPLOAD_URL;
 
 /**
  * Plugin Name: Intranet
@@ -44,3 +66,72 @@ function load_files() {
 	}
 
 }
+
+function activate_intranet() {
+
+	// create folder, user role and htaccess only once
+	delete_option( 'media_center_activation' );
+	if ( ! get_option( 'media_center_activation' ) ) {
+		activate();
+		update_option( 'media_center_activation', 1 );
+	}
+}
+
+add_action( 'admin_init', 'ThfoIntranet\activate_intranet' );
+function activate() {
+	// prepare htaccess Content
+	$intranet_path = THFO_INTRANET_PLUGIN_PATH;
+
+	$htaccessContent = "\n# BEGIN intranet Plugin\n";
+	$htaccessContent .= "RewriteCond %{REQUEST_FILENAME} -s\n";
+	$htaccessContent .= "RewriteRule ^(.*)$ {$intranet_path}get-files.php?file=$1 [QSA,L]\n";
+	$htaccessContent .= "# END intranet Plugin\n";
+
+	$uploads_dir       = wp_upload_dir();
+	$media_uploads_dir = $uploads_dir['basedir'] . '/intranet/protected';
+	define( 'THFO_MEDIA_UPLOAD', $media_uploads_dir );
+	define( 'THFO_MEDIA_UPLOAD_URL', $uploads_dir['baseurl'] . '/intranet/protected' );
+
+	// if media folder doesn't exist create it
+	if ( ! file_exists( $media_uploads_dir ) ) {
+		mkdir( $media_uploads_dir, 0777, true );
+	}
+
+	// check if htaccess does not exists
+	if ( ! file_exists( $media_uploads_dir . '/.htaccess' ) ) {
+		file_put_contents( $media_uploads_dir . '/' . '.htaccess', $htaccessContent );
+	}
+	// if htaccess already exists
+	if ( file_exists( $media_uploads_dir . '/.htaccess' ) && preg_match( '/(# BEGIN intranet Plugin)(.*?)(# END intranet Plugin)/is', file_get_contents( $media_uploads_dir . '/.htaccess' ) ) == 0 ) {
+		file_put_contents( $media_uploads_dir . '/.htaccess', $htaccessContent, FILE_APPEND | LOCK_EX );
+	}
+}
+
+add_filter( 'upload_dir', 'ThfoIntranet\chg_media_dir' );
+function chg_media_dir( $uploads ) {
+	if ( ! empty( $_REQUEST['data'] ) && 'intranet' === get_post_type( $_REQUEST['data']['wp-refresh-post-lock']['post_id'] ) ) {
+		$uploads['path'] = THFO_MEDIA_UPLOAD . $uploads['subdir'];
+		$uploads['url']  = THFO_MEDIA_UPLOAD_URL . $uploads['subdir'];
+	}
+
+	return $uploads;
+}
+
+add_filter( 'wp_handle_upload_prefilter', 'ThfoIntranet\pre_upload' );
+function pre_upload( $file ) {
+	add_filter( 'upload_dir', 'ThfoIntranet\custom_upload_dir' );
+
+	return $file;
+}
+
+function custom_upload_dir( $uploads ) {
+	$id = $_REQUEST['post_id'];
+	if ( 'intranet' == get_post_type( $id ) ) {
+		$uploads['path'] = THFO_MEDIA_UPLOAD . $uploads['subdir'];
+		$uploads['url']  = THFO_MEDIA_UPLOAD_URL . $uploads['subdir'];
+	}
+
+	return $uploads;
+
+}
+

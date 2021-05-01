@@ -2,10 +2,38 @@
 namespace ThfoIntranet\roles;
 
 use function add_role;
+use function filemtime;
+use function filesize;
+use function function_exists;
 use function get_current_user_id;
+use function get_post_meta;
+use function get_posts;
 use function get_role;
+use function get_the_password_form;
+use function gmdate;
+use function header;
+use function is_file;
 use function is_user_logged_in;
+use function md5;
+use function mime_content_type;
+use function pathinfo;
+use function post_password_required;
+use function readfile;
 use function remove_role;
+use function status_header;
+use function stripslashes;
+use function strpos;
+use function strrpos;
+use function strtotime;
+use function substr;
+use function time;
+use function trim;
+use function wp_check_filetype;
+use function wp_die;
+use function wp_get_attachment_metadata;
+use function wp_login_url;
+use function wp_redirect;
+use function wp_upload_dir;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -98,4 +126,14 @@ function add_role_reader() {
 		'delete_intranet_cat'        => false,
 	);
 	add_role( 'intranet_reader', __( 'Intranet Reader', 'thfo-intranet' ), $capabilities );
+}
+
+//add_filter( 'generate_rewrite_rules', 'ThfoIntranet\roles\fb_generate_rewrite_rules' );
+
+function fb_generate_rewrite_rules( $wprewrite ) {
+	$upload                  = wp_upload_dir();
+	$path                    = str_replace( site_url( '/' ), '', $upload['baseurl'] );
+	$wprewrite->non_wp_rules = array( $path . '/(.*)' => 'dl-file.php?file=$1' );
+
+	return $wprewrite;
 }
