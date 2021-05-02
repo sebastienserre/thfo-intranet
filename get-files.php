@@ -11,13 +11,19 @@
  * @registry SPDX
  */
 $path = preg_replace('/wp-content.*$/','',__DIR__);
-require_once( $path . 'wp-load.php');
-require_once ABSPATH . WPINC . '/formatting.php';
-require_once ABSPATH . WPINC . '/capabilities.php';
-require_once ABSPATH . WPINC . '/user.php';
-require_once ABSPATH . WPINC . '/meta.php';
-require_once ABSPATH . WPINC . '/post.php';
-require_once ABSPATH . WPINC . '/pluggable.php';
+
+/**
+ * Load WordPress
+ * @link https://21douze.fr/wordpress-bootstraps-ou-comment-bien-charger-wordpress-6717.html
+ */
+$bootstrap = 'wp-load.php';
+while( !is_file( $bootstrap ) ) {
+	if( is_dir( '..' ) )
+		chdir( '..' );
+	else
+		die( 'EN: Could not find WordPress! FR : Impossible de trouver WordPress !' );
+}
+require_once( $bootstrap );
 
 
 if ( !is_user_logged_in() || ! current_user_can( 'read_intranet' ) ) {
