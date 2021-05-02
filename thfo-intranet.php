@@ -10,6 +10,7 @@ use function delete_option;
 use function file_exists;
 use function file_get_contents;
 use function file_put_contents;
+use function get_current_blog_id;
 use function get_post;
 use function get_post_type;
 use function is_file;
@@ -90,16 +91,11 @@ function activate() {
 	$htaccessContent .= "# END intranet Plugin\n";
 
 	$uploads_dir       = wp_upload_dir();
-	$media_uploads_dir = $uploads_dir['basedir'] . '/intranet/protected';
-	/**
-	 * @todo to be adapted on multisite. Check on get-files too.
-	 *
-	 */
-	/*if (is_multisite() ){
-		$media_uploads_dir = $uploads_dir['basedir'] . '/intranet/protected';
-	}*/
+	$protected_folder = '/intranet/protected';
+	$media_uploads_dir = $uploads_dir['basedir'] . $protected_folder;
+
 	define( 'THFO_MEDIA_UPLOAD', $media_uploads_dir );
-	define( 'THFO_MEDIA_UPLOAD_URL', $uploads_dir['baseurl'] . '/intranet/protected' );
+	define( 'THFO_MEDIA_UPLOAD_URL', $uploads_dir['baseurl'] . $protected_folder );
 
 	// if media folder doesn't exist create it
 	if ( ! file_exists( $media_uploads_dir ) ) {

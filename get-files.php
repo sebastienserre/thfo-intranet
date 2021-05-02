@@ -25,12 +25,9 @@ while( !is_file( $bootstrap ) ) {
 }
 require_once( $bootstrap );
 
-
 if ( !is_user_logged_in() || ! current_user_can( 'read_intranet' ) ) {
 	auth_redirect();
 }
-
-
 
 list($basedir) = array_values(array_intersect_key(wp_upload_dir(), array('basedir' => 1)))+array(NULL);
 $file =  rtrim($basedir,'/').'/'.str_replace('..', '', isset($_GET[ 'file' ])? 'intranet/protected/' . $_GET[ 'file'
