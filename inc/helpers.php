@@ -25,6 +25,6 @@ function has_access( $user_id = '' ) {
 
 function check_access(){
 	if ( ! has_access( get_current_user_id() ) ) {
-		return wp_login_form( array( 'echo' => false) );
+		echo wp_login_form( );
 	}
 }

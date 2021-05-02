@@ -5,7 +5,7 @@
         {
             "key": "field_608d84b00fe96",
             "label": "Fichiers Protégés",
-            "name": "",
+            "name": "intranet_protected_files",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -60,5 +60,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1619897577
+    "modified": 1619965633
 }
