@@ -9,18 +9,18 @@ if ( ! function_exists( 'thfo_intranet' ) ) {
 			'singular_name'         => _x( 'Intranet', 'Post Type Singular Name', 'thfo-intranet' ),
 			'menu_name'             => __( 'Intranet', 'thfo-intranet' ),
 			'name_admin_bar'        => __( 'Intranet', 'thfo-intranet' ),
-			'archives'              => __( 'Item Archives', 'thfo-intranet' ),
-			'attributes'            => __( 'Item Attributes', 'thfo-intranet' ),
-			'parent_item_colon'     => __( 'Parent Item:', 'thfo-intranet' ),
-			'all_items'             => __( 'All Items', 'thfo-intranet' ),
-			'add_new_item'          => __( 'Add New Item', 'thfo-intranet' ),
+			'archives'              => __( 'Intranet Archives', 'thfo-intranet' ),
+			'attributes'            => __( 'Intranet Attributes', 'thfo-intranet' ),
+			'parent_item_colon'     => __( 'Parent Intranet:', 'thfo-intranet' ),
+			'all_items'             => __( 'All Intranets', 'thfo-intranet' ),
+			'add_new_item'          => __( 'Add New Intranet', 'thfo-intranet' ),
 			'add_new'               => __( 'Add New', 'thfo-intranet' ),
-			'new_item'              => __( 'New Item', 'thfo-intranet' ),
-			'edit_item'             => __( 'Edit Item', 'thfo-intranet' ),
-			'update_item'           => __( 'Update Item', 'thfo-intranet' ),
-			'view_item'             => __( 'View Item', 'thfo-intranet' ),
-			'view_items'            => __( 'View Items', 'thfo-intranet' ),
-			'search_items'          => __( 'Search Item', 'thfo-intranet' ),
+			'new_item'              => __( 'New Intranet', 'thfo-intranet' ),
+			'edit_item'             => __( 'Edit Intranet', 'thfo-intranet' ),
+			'update_item'           => __( 'Update Intranet', 'thfo-intranet' ),
+			'view_item'             => __( 'View Intranet', 'thfo-intranet' ),
+			'view_items'            => __( 'View Intranets', 'thfo-intranet' ),
+			'search_items'          => __( 'Search Intranet', 'thfo-intranet' ),
 			'not_found'             => __( 'Not found', 'thfo-intranet' ),
 			'not_found_in_trash'    => __( 'Not found in Trash', 'thfo-intranet' ),
 			'featured_image'        => __( 'Featured Image', 'thfo-intranet' ),
@@ -29,8 +29,8 @@ if ( ! function_exists( 'thfo_intranet' ) ) {
 			'use_featured_image'    => __( 'Use as featured image', 'thfo-intranet' ),
 			'insert_into_item'      => __( 'Insert into item', 'thfo-intranet' ),
 			'uploaded_to_this_item' => __( 'Uploaded to this item', 'thfo-intranet' ),
-			'items_list'            => __( 'Items list', 'thfo-intranet' ),
-			'items_list_navigation' => __( 'Items list navigation', 'thfo-intranet' ),
+			'items_list'            => __( 'Intranets list', 'thfo-intranet' ),
+			'items_list_navigation' => __( 'Intranets list navigation', 'thfo-intranet' ),
 			'filter_items_list'     => __( 'Filter items list', 'thfo-intranet' ),
 		);
 		$capabilities = array(
@@ -66,7 +66,7 @@ if ( ! function_exists( 'thfo_intranet' ) ) {
 			'can_export'          => true,
 			'has_archive'         => true,
 			'exclude_from_search' => true,
-			'publicly_queryable'  => false,
+			'publicly_queryable'  => true,
 			'capabilities'        => $capabilities,
 		);
 		register_post_type( 'intranet', $args );
@@ -76,3 +76,4 @@ if ( ! function_exists( 'thfo_intranet' ) ) {
 	add_action( 'init', 'thfo_intranet', 0 );
 
 }
+

@@ -13,12 +13,14 @@ use function file_put_contents;
 use function get_post;
 use function get_post_type;
 use function is_file;
+use function is_multisite;
 use function mc_activation_function;
 use function mkdir;
 use function plugin_dir_path;
 use function plugin_dir_url;
 use function preg_match;
 use function scandir;
+use function ThfoIntranet\acf\intranet_acf;
 use function untrailingslashit;
 use function update_option;
 use function var_dump;
@@ -89,6 +91,13 @@ function activate() {
 
 	$uploads_dir       = wp_upload_dir();
 	$media_uploads_dir = $uploads_dir['basedir'] . '/intranet/protected';
+	/**
+	 * @todo to be adapted on multisite. Check on get-files too.
+	 *
+	 */
+	/*if (is_multisite() ){
+		$media_uploads_dir = $uploads_dir['basedir'] . '/intranet/protected';
+	}*/
 	define( 'THFO_MEDIA_UPLOAD', $media_uploads_dir );
 	define( 'THFO_MEDIA_UPLOAD_URL', $uploads_dir['baseurl'] . '/intranet/protected' );
 
@@ -126,7 +135,7 @@ function pre_upload( $file ) {
 
 function custom_upload_dir( $uploads ) {
 	$id = $_REQUEST['post_id'];
-	if ( 'intranet' == get_post_type( $id ) ) {
+	if ( 'intranet' === get_post_type( $id ) ) {
 		$uploads['path'] = THFO_MEDIA_UPLOAD . $uploads['subdir'];
 		$uploads['url']  = THFO_MEDIA_UPLOAD_URL . $uploads['subdir'];
 	}
@@ -134,4 +143,3 @@ function custom_upload_dir( $uploads ) {
 	return $uploads;
 
 }
-
