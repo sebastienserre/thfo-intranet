@@ -70,17 +70,8 @@ function load_files() {
 
 }
 
-function activate_intranet() {
 
-	// create folder, user role and htaccess only once
-	delete_option( 'media_center_activation' );
-	if ( ! get_option( 'media_center_activation' ) ) {
-		activate();
-		update_option( 'media_center_activation', 1 );
-	}
-}
-
-add_action( 'admin_init', 'ThfoIntranet\activate_intranet' );
+add_action( 'admin_init', 'ThfoIntranet\activate' );
 function activate() {
 	// prepare htaccess Content
 	$intranet_path = THFO_INTRANET_PLUGIN_PATH;
