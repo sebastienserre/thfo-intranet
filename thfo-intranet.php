@@ -71,7 +71,7 @@ function load_files() {
 }
 
 
-add_action( 'admin_init', 'ThfoIntranet\activate' );
+add_action( 'plugins_loaded', 'ThfoIntranet\activate' );
 function activate() {
 	// prepare htaccess Content
 	$intranet_path = THFO_INTRANET_PLUGIN_PATH;
