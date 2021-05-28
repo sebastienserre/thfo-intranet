@@ -1,0 +1,231 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Intranet\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-28 06:10+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.5.2; wp-5.7.2\n"
+"X-Domain: thfo-intranet"
+
+#: inc/cpt.php:17
+msgid "Add New"
+msgstr ""
+
+#: inc/cpt.php:16
+msgid "Add New Intranet"
+msgstr ""
+
+#: inc/taxo.php:19
+msgid "Add New Item"
+msgstr ""
+
+#: inc/taxo.php:24
+msgid "Add or remove items"
+msgstr ""
+
+#: inc/cpt.php:15
+msgid "All Intranets"
+msgstr ""
+
+#: inc/taxo.php:15
+msgid "All Items"
+msgstr ""
+
+#: inc/helpers.php:49
+msgid "Available downloads"
+msgstr ""
+
+#: inc/taxo.php:14
+msgid "Categories"
+msgstr ""
+
+#: inc/taxo.php:25
+msgid "Choose from the most used"
+msgstr ""
+
+#: inc/cpt.php:19
+msgid "Edit Intranet"
+msgstr ""
+
+#: inc/taxo.php:20
+msgid "Edit Item"
+msgstr ""
+
+#: inc/cpt.php:26
+msgid "Featured Image"
+msgstr ""
+
+#: inc/cpt.php:34
+msgid "Filter items list"
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://thivinfo.com"
+msgstr ""
+
+#: inc/cpt.php:30
+msgid "Insert into item"
+msgstr ""
+
+#. Name of the plugin
+#: inc/cpt.php:10 inc/cpt.php:11 inc/cpt.php:54 inc/cpt.php:55
+msgid "Intranet"
+msgstr ""
+
+#: inc/cpt.php:12
+msgid "Intranet Archives"
+msgstr ""
+
+#: inc/cpt.php:13
+msgid "Intranet Attributes"
+msgstr ""
+
+#: inc/roles.php:101
+msgid "Intranet Author"
+msgstr ""
+
+#: inc/roles.php:128
+msgid "Intranet Reader"
+msgstr ""
+
+#: inc/cpt.php:32
+msgid "Intranets list"
+msgstr ""
+
+#: inc/cpt.php:33
+msgid "Intranets list navigation"
+msgstr ""
+
+#: inc/taxo.php:30
+msgid "Items list"
+msgstr ""
+
+#: inc/taxo.php:31
+msgid "Items list navigation"
+msgstr ""
+
+#: inc/cpt.php:18
+msgid "New Intranet"
+msgstr ""
+
+#: inc/taxo.php:18
+msgid "New Item Name"
+msgstr ""
+
+#: inc/taxo.php:29
+msgid "No items"
+msgstr ""
+
+#: inc/taxo.php:28
+msgid "Not Found"
+msgstr ""
+
+#: inc/cpt.php:24
+msgid "Not found"
+msgstr ""
+
+#: inc/cpt.php:25
+msgid "Not found in Trash"
+msgstr ""
+
+#: inc/cpt.php:14
+msgid "Parent Intranet:"
+msgstr ""
+
+#: inc/taxo.php:16
+msgid "Parent Item"
+msgstr ""
+
+#: inc/taxo.php:17
+msgid "Parent Item:"
+msgstr ""
+
+#: inc/taxo.php:26
+msgid "Popular Items"
+msgstr ""
+
+#: inc/cpt.php:8
+msgctxt "Post Type General Name"
+msgid "Intranets"
+msgstr ""
+
+#: inc/cpt.php:9
+msgctxt "Post Type Singular Name"
+msgid "Intranet"
+msgstr ""
+
+#: inc/cpt.php:28
+msgid "Remove featured image"
+msgstr ""
+
+#: inc/cpt.php:23
+msgid "Search Intranet"
+msgstr ""
+
+#: inc/taxo.php:27
+msgid "Search Items"
+msgstr ""
+
+#: inc/taxo.php:23
+msgid "Separate items with commas"
+msgstr ""
+
+#: inc/cpt.php:27
+msgid "Set featured image"
+msgstr ""
+
+#. Description of the plugin
+msgid "Share content only with registred users"
+msgstr ""
+
+#. Author of the plugin
+msgid "Sébastien SERRE"
+msgstr ""
+
+#: inc/taxo.php:12
+msgctxt "Taxonomy General Name"
+msgid "Categories"
+msgstr ""
+
+#: inc/taxo.php:13
+msgctxt "Taxonomy Singular Name"
+msgid "Category"
+msgstr ""
+
+#: inc/cpt.php:20
+msgid "Update Intranet"
+msgstr ""
+
+#: inc/taxo.php:21
+msgid "Update Item"
+msgstr ""
+
+#: inc/cpt.php:31
+msgid "Uploaded to this item"
+msgstr ""
+
+#: inc/cpt.php:29
+msgid "Use as featured image"
+msgstr ""
+
+#: inc/cpt.php:21
+msgid "View Intranet"
+msgstr ""
+
+#: inc/cpt.php:22
+msgid "View Intranets"
+msgstr ""
+
+#: inc/taxo.php:22
+msgid "View Item"
+msgstr ""

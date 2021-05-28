@@ -35,7 +35,7 @@ use const THFO_MEDIA_UPLOAD_URL;
 
 /**
  * Plugin Name: Intranet
- * Plugin URI: https://www.thivinfo.com
+ * Plugin URI: https://thivinfo.com
  * Description: Share content only with registred users
  * Author: Sébastien SERRE
  * Author URI: https://thivinfo.com
@@ -129,4 +129,13 @@ function custom_upload_dir( $uploads ) {
 
 	return $uploads;
 
+}
+
+add_action( 'init', 'ThfoIntranet\load_textdomain' );
+
+/**
+ * Load plugin textdomain.
+ */
+function load_textdomain() {
+	load_plugin_textdomain( 'thfo-intranet', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
