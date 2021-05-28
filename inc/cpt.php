@@ -68,6 +68,7 @@ if ( ! function_exists( 'thfo_intranet' ) ) {
 			'exclude_from_search' => true,
 			'publicly_queryable'  => true,
 			'capabilities'        => $capabilities,
+			'show_in_rest'        => true,
 		);
 		register_post_type( 'intranet', $args );
 
