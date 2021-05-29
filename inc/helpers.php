@@ -93,6 +93,7 @@ function template_chooser( $template ){
 	if ( is_post_type_archive() ){
 	    return get_template_hierarchy( 'archive' );
     }
+	return $template;
 }
 
 function get_template_hierarchy( $template ){
