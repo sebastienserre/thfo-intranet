@@ -40,6 +40,11 @@ add_filter( 'the_content', function ( $content ){
 		return $content;
 	}
 
+	if ( !  has_access() ){
+	    $content = check_access();
+	    return $content;
+    }
+
 	$files = get_field( 'intranet_protected_files' );
 	if ( empty( $files ) ){
 		return $content;
