@@ -1,0 +1,12 @@
+.main-intranet{
+	margin: 0 auto;
+	width: 1120px;
+	.read-more {
+		display: block;
+	}
+	.intranet-detail {
+		&::after {
+			content: '-----------------------------------------';
+		}
+	}
+}
