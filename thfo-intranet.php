@@ -15,6 +15,8 @@ use function get_post;
 use function get_post_type;
 use function is_file;
 use function is_multisite;
+use function is_post_type_archive;
+use function is_singular;
 use function mc_activation_function;
 use function mkdir;
 use function plugin_dir_path;
@@ -25,6 +27,7 @@ use function ThfoIntranet\acf\intranet_acf;
 use function untrailingslashit;
 use function update_option;
 use function var_dump;
+use function wp_enqueue_style;
 use function wp_upload_dir;
 use const FILE_APPEND;
 use const LOCK_EX;
@@ -138,4 +141,12 @@ add_action( 'init', 'ThfoIntranet\load_textdomain' );
  */
 function load_textdomain() {
 	load_plugin_textdomain( 'thfo-intranet', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+}
+
+add_action( 'wp_enqueue_scripts', 'ThfoIntranet\load_style', 20 );
+function load_style(){
+	$posttype = is_post_type_archive( 'intranet' );
+	if ( is_post_type_archive( 'intranet' ) || is_singular( 'intranet' ) ){
+		wp_enqueue_style( 'intranet-style', THFO_INTRANET_PLUGIN_URL . 'assets/css/intranet.css' );
+	}
 }
