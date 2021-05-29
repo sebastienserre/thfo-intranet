@@ -3,7 +3,14 @@ namespace ThfoIntranet\helpers;
 use function add_filter;
 use function function_exists;
 use function get_current_user_id;
+use function get_term_link;
 use function get_the_ID;
+use function get_the_permalink;
+use function get_the_terms;
+use function implode;
+use function is_post_type_archive;
+use function is_single;
+use function is_singular;
 use function ob_get_clean;
 use function ob_get_flush;
 use function ob_start;
@@ -31,7 +38,7 @@ function has_access( $user_id = '' ) {
 
 function check_access(){
 	if ( ! has_access( get_current_user_id() ) ) {
-		echo wp_login_form( );
+		return wp_login_form( );
 	}
 }
 
@@ -39,6 +46,10 @@ add_filter( 'the_content', function ( $content ){
 	if (! function_exists( 'get_field' ) ){
 		return $content;
 	}
+
+	if ( ! is_singular( 'intranet' ) || is_post_type_archive( 'intranet' ) ){
+	    return $content;
+    }
 
 	if ( !  has_access() ){
 	    $content = check_access();
@@ -69,3 +80,56 @@ add_filter( 'the_content', function ( $content ){
 	return $content;
 
 });
+
+add_filter( 'template_include', 'ThfoIntranet\helpers\template_chooser' );
+function template_chooser( $template ){
+    $post_id = get_the_ID();
+
+    // For all other CPT
+	if ( get_post_type( $post_id ) != 'intranet' ) {
+		return $template;
+	}
+
+	if ( is_post_type_archive() ){
+	    return get_template_hierarchy( 'archive' );
+    }
+}
+
+function get_template_hierarchy( $template ){
+	// Get the template slug
+	$template_slug = rtrim( $template, '.php' );
+	$template = $template_slug . '.php';
+
+	// Check if a custom template exists in the theme folder, if not, load the plugin template file
+	if ( $theme_file = locate_template( array( 'intranet-template/' . $template ) ) ) {
+		$file = $theme_file;
+	}
+	else {
+		$file = THFO_INTRANET_PLUGIN_DIR . '/templates/' . $template;
+	}
+
+	return apply_filters( 'intranet_repl_template_' . $template, $file );
+}
+add_filter( 'template_include', 'ThfoIntranet\helpers\template_chooser' );
+
+function get_cat_list( $post_id ){
+	$list = get_the_terms( $post_id, 'intranet_cat' );
+	$categories = array();
+	foreach ( $list as $term ){
+	    $categories[] = '<a href="' . get_term_link( $term->term_id ) . '">' . $term->name . '</a>';
+    }
+	$category_list = implode( ', ', $categories );
+	return $category_list;
+}
+
+function excerpt_more( $more ) {
+	if (  is_post_type_archive( 'intranet') ) {
+		$more = sprintf( ' <a class="read-more" href="%1$s">%2$s</a>',
+			get_permalink( get_the_ID() ),
+			__( 'Read More', 'thfo-intranet' )
+		);
+	}
+
+	return $more;
+}
+add_filter( 'excerpt_more', 'ThfoIntranet\helpers\excerpt_more' );
