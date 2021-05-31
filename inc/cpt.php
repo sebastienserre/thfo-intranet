@@ -54,7 +54,7 @@ if ( ! function_exists( 'thfo_intranet' ) ) {
 			'label'               => __( 'Intranet', 'thfo-intranet' ),
 			'description'         => __( 'Intranet', 'thfo-intranet' ),
 			'labels'              => $labels,
-			'supports'            => array( 'title', 'editor', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
+			'supports'            => array( 'title', 'editor', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes' ),
 			'hierarchical'        => true,
 			'public'              => false,
 			'show_ui'             => true,
