@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Intranet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-28 06:10+0000\n"
+"POT-Creation-Date: 2021-05-31 16:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -40,7 +40,7 @@ msgstr ""
 msgid "All Items"
 msgstr ""
 
-#: inc/helpers.php:49
+#: inc/helpers.php:65
 msgid "Available downloads"
 msgstr ""
 
@@ -90,11 +90,13 @@ msgstr ""
 msgid "Intranet Attributes"
 msgstr ""
 
-#: inc/roles.php:101
+#: inc/roles.php:100
+msgctxt "Auteur Intranet"
 msgid "Intranet Author"
 msgstr ""
 
-#: inc/roles.php:128
+#: inc/roles.php:126
+msgctxt "Lecteur Intranet"
 msgid "Intranet Reader"
 msgstr ""
 
@@ -162,6 +164,17 @@ msgstr ""
 #: inc/cpt.php:9
 msgctxt "Post Type Singular Name"
 msgid "Intranet"
+msgstr ""
+
+#: templates/archive.php:20
+#, php-format
+msgctxt "Publié dans: %s"
+msgid "Published in: %s"
+msgstr ""
+
+#: inc/helpers.php:130
+msgctxt "En lire plus"
+msgid "Read More"
 msgstr ""
 
 #: inc/cpt.php:28

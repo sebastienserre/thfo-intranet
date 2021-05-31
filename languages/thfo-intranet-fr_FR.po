@@ -3,15 +3,15 @@ msgstr ""
 "Project-Id-Version: Intranet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-28 06:10+0000\n"
-"PO-Revision-Date: 2021-05-28 08:10+0200\n"
-"Last-Translator: Sébastien SERRE <sebastien@thivinfo.com>\n"
+"PO-Revision-Date: 2021-05-31 16:09+0000\n"
+"Last-Translator: \n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.5.2; wp-5.7.2\n"
 "X-Domain: thfo-intranet\n"
 
@@ -39,7 +39,12 @@ msgstr "Tous"
 msgid "All Items"
 msgstr "Tous"
 
-#: inc/helpers.php:49
+#: inc/roles.php:100
+msgctxt "Auteur Intranet"
+msgid "Intranet Author"
+msgstr "Auteur de l'intranet"
+
+#: inc/helpers.php:65
 msgid "Available downloads"
 msgstr "Téléchargements disponible"
 
@@ -58,6 +63,11 @@ msgstr "Modifier"
 #: inc/taxo.php:20
 msgid "Edit Item"
 msgstr "Modifier"
+
+#: inc/helpers.php:130
+msgctxt "En lire plus"
+msgid "Read More"
+msgstr "Lire plus"
 
 #: inc/cpt.php:26
 msgid "Featured Image"
@@ -89,14 +99,6 @@ msgstr ""
 msgid "Intranet Attributes"
 msgstr ""
 
-#: inc/roles.php:101
-msgid "Intranet Author"
-msgstr ""
-
-#: inc/roles.php:128
-msgid "Intranet Reader"
-msgstr ""
-
 #: inc/cpt.php:32
 msgid "Intranets list"
 msgstr ""
@@ -112,6 +114,11 @@ msgstr ""
 #: inc/taxo.php:31
 msgid "Items list navigation"
 msgstr ""
+
+#: inc/roles.php:126
+msgctxt "Lecteur Intranet"
+msgid "Intranet Reader"
+msgstr "Lecteur de l'intranet"
 
 #: inc/cpt.php:18
 msgid "New Intranet"
@@ -163,6 +170,12 @@ msgctxt "Post Type Singular Name"
 msgid "Intranet"
 msgstr ""
 
+#: templates/archive.php:20
+#, php-format
+msgctxt "Publié dans: %s"
+msgid "Published in: %s"
+msgstr ""
+
 #: inc/cpt.php:28
 msgid "Remove featured image"
 msgstr "Enlever une image de mise en avant"
@@ -189,7 +202,7 @@ msgstr ""
 
 #. Author of the plugin
 msgid "Sébastien SERRE"
-msgstr ""
+msgstr "Sébastien SERRE"
 
 #: inc/taxo.php:12
 msgctxt "Taxonomy General Name"

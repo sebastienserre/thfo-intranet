@@ -76,8 +76,7 @@ function add_cap_admin(){
 
 add_action( 'admin_init', 'ThfoIntranet\roles\add_role_author' );
 function add_role_author() {
-	// TODO remove this on prod
-	remove_role( 'intranet_author' );
+
 	$capabilities = array(
 		'edit_intranet'              => true,
 		'read_intranet'              => true,
@@ -103,8 +102,7 @@ function add_role_author() {
 
 add_action( 'admin_init', 'ThfoIntranet\roles\add_role_reader' );
 function add_role_reader() {
-	// TODO remove this on prod
-	remove_role( 'intranet_reader' );
+
 	$capabilities = array(
 		'edit_intranet'              => false,
 		'read_intranet'              => true,
