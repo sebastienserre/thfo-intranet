@@ -134,7 +134,7 @@ function custom_upload_dir( $uploads ) {
 
 }
 
-add_action( 'init', 'ThfoIntranet\load_textdomain' );
+add_action( 'plugins_loaded', 'ThfoIntranet\load_textdomain' );
 
 /**
  * Load plugin textdomain.

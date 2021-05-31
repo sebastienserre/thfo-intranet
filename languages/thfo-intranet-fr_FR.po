@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Intranet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-28 06:10+0000\n"
-"PO-Revision-Date: 2021-05-31 16:09+0000\n"
+"PO-Revision-Date: 2021-05-31 16:31+0000\n"
 "Last-Translator: \n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -84,12 +84,12 @@ msgstr "https://thivinfo.com"
 
 #: inc/cpt.php:30
 msgid "Insert into item"
-msgstr ""
+msgstr "Insérer dans"
 
 #. Name of the plugin
 #: inc/cpt.php:10 inc/cpt.php:11 inc/cpt.php:54 inc/cpt.php:55
 msgid "Intranet"
-msgstr ""
+msgstr "Intranet"
 
 #: inc/cpt.php:12
 msgid "Intranet Archives"
@@ -122,7 +122,7 @@ msgstr "Lecteur de l'intranet"
 
 #: inc/cpt.php:18
 msgid "New Intranet"
-msgstr ""
+msgstr "Nouvel intranet"
 
 #: inc/taxo.php:18
 msgid "New Item Name"
