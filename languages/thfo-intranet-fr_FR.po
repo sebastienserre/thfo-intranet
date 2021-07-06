@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Intranet\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-28 06:10+0000\n"
-"PO-Revision-Date: 2021-05-31 16:31+0000\n"
+"PO-Revision-Date: 2021-07-06 06:02+0000\n"
 "Last-Translator: \n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -39,11 +39,6 @@ msgstr "Tous"
 msgid "All Items"
 msgstr "Tous"
 
-#: inc/roles.php:100
-msgctxt "Auteur Intranet"
-msgid "Intranet Author"
-msgstr "Auteur de l'intranet"
-
 #: inc/helpers.php:65
 msgid "Available downloads"
 msgstr "Téléchargements disponible"
@@ -64,11 +59,6 @@ msgstr "Modifier"
 msgid "Edit Item"
 msgstr "Modifier"
 
-#: inc/helpers.php:130
-msgctxt "En lire plus"
-msgid "Read More"
-msgstr "Lire plus"
-
 #: inc/cpt.php:26
 msgid "Featured Image"
 msgstr "Image à la une"
@@ -87,38 +77,41 @@ msgid "Insert into item"
 msgstr "Insérer dans"
 
 #. Name of the plugin
-#: inc/cpt.php:10 inc/cpt.php:11 inc/cpt.php:54 inc/cpt.php:55
+#: inc/cpt.php:10 inc/cpt.php:11 inc/cpt.php:62 inc/cpt.php:63
 msgid "Intranet"
 msgstr "Intranet"
 
 #: inc/cpt.php:12
 msgid "Intranet Archives"
-msgstr ""
+msgstr "Archives"
 
 #: inc/cpt.php:13
 msgid "Intranet Attributes"
-msgstr ""
+msgstr "Attributs"
+
+#: inc/roles.php:103
+msgid "Intranet Author"
+msgstr "Auteur Intranet"
+
+#: inc/roles.php:130
+msgid "Intranet Reader"
+msgstr "Lecteur Intranet"
 
 #: inc/cpt.php:32
 msgid "Intranets list"
-msgstr ""
+msgstr "Liste"
 
 #: inc/cpt.php:33
 msgid "Intranets list navigation"
-msgstr ""
+msgstr "Navigation dans la liste"
 
 #: inc/taxo.php:30
 msgid "Items list"
-msgstr ""
+msgstr "Éléments"
 
 #: inc/taxo.php:31
 msgid "Items list navigation"
-msgstr ""
-
-#: inc/roles.php:126
-msgctxt "Lecteur Intranet"
-msgid "Intranet Reader"
-msgstr "Lecteur de l'intranet"
+msgstr "Navigation dans les Éléments"
 
 #: inc/cpt.php:18
 msgid "New Intranet"
@@ -126,55 +119,58 @@ msgstr "Nouvel intranet"
 
 #: inc/taxo.php:18
 msgid "New Item Name"
-msgstr ""
+msgstr "Nouvel élément"
 
 #: inc/taxo.php:29
 msgid "No items"
-msgstr ""
+msgstr "Aucun élémént"
 
 #: inc/taxo.php:28
 msgid "Not Found"
-msgstr ""
+msgstr "Non Trouvé"
 
 #: inc/cpt.php:24
 msgid "Not found"
-msgstr ""
+msgstr "Non trouvé"
 
 #: inc/cpt.php:25
 msgid "Not found in Trash"
-msgstr ""
+msgstr "Rien dans la corbeille"
 
 #: inc/cpt.php:14
 msgid "Parent Intranet:"
-msgstr ""
+msgstr "Intranet Parent :"
 
 #: inc/taxo.php:16
 msgid "Parent Item"
-msgstr ""
+msgstr "Intranet Parent"
 
 #: inc/taxo.php:17
 msgid "Parent Item:"
-msgstr ""
+msgstr "Intranet Parent :"
 
 #: inc/taxo.php:26
 msgid "Popular Items"
-msgstr ""
+msgstr "2lément populaire"
 
 #: inc/cpt.php:8
 msgctxt "Post Type General Name"
 msgid "Intranets"
-msgstr ""
+msgstr "Intranets"
 
 #: inc/cpt.php:9
 msgctxt "Post Type Singular Name"
 msgid "Intranet"
-msgstr ""
+msgstr "Intranet"
 
 #: templates/archive.php:20
 #, php-format
-msgctxt "Publié dans: %s"
 msgid "Published in: %s"
-msgstr ""
+msgstr "Publié dans : %s"
+
+#: inc/helpers.php:138
+msgid "Read More"
+msgstr "En lire plus"
 
 #: inc/cpt.php:28
 msgid "Remove featured image"
@@ -182,15 +178,15 @@ msgstr "Enlever une image de mise en avant"
 
 #: inc/cpt.php:23
 msgid "Search Intranet"
-msgstr ""
+msgstr "Chercher"
 
 #: inc/taxo.php:27
 msgid "Search Items"
-msgstr ""
+msgstr "Chercher"
 
 #: inc/taxo.php:23
 msgid "Separate items with commas"
-msgstr ""
+msgstr "Séparer avec des virgules"
 
 #: inc/cpt.php:27
 msgid "Set featured image"
@@ -198,7 +194,7 @@ msgstr "Définir une image de mise en avant"
 
 #. Description of the plugin
 msgid "Share content only with registred users"
-msgstr ""
+msgstr "Partager le contenu seulement avec des utilisateurs enregistrés"
 
 #. Author of the plugin
 msgid "Sébastien SERRE"
@@ -216,15 +212,15 @@ msgstr "Catégorie"
 
 #: inc/cpt.php:20
 msgid "Update Intranet"
-msgstr ""
+msgstr "Mettre a jour"
 
 #: inc/taxo.php:21
 msgid "Update Item"
-msgstr ""
+msgstr "Mettre à jour"
 
 #: inc/cpt.php:31
 msgid "Uploaded to this item"
-msgstr ""
+msgstr "Téléverser sur cet élément"
 
 #: inc/cpt.php:29
 msgid "Use as featured image"
@@ -232,12 +228,12 @@ msgstr "Utiliser une image mise en avant"
 
 #: inc/cpt.php:21
 msgid "View Intranet"
-msgstr ""
+msgstr "Voir"
 
 #: inc/cpt.php:22
 msgid "View Intranets"
-msgstr ""
+msgstr "Voir"
 
 #: inc/taxo.php:22
 msgid "View Item"
-msgstr ""
+msgstr "Voir"

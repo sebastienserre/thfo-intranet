@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Intranet\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-31 16:04+0000\n"
+"POT-Creation-Date: 2021-07-06 05:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -78,7 +78,7 @@ msgid "Insert into item"
 msgstr ""
 
 #. Name of the plugin
-#: inc/cpt.php:10 inc/cpt.php:11 inc/cpt.php:54 inc/cpt.php:55
+#: inc/cpt.php:10 inc/cpt.php:11 inc/cpt.php:62 inc/cpt.php:63
 msgid "Intranet"
 msgstr ""
 
@@ -90,13 +90,11 @@ msgstr ""
 msgid "Intranet Attributes"
 msgstr ""
 
-#: inc/roles.php:100
-msgctxt "Auteur Intranet"
+#: inc/roles.php:103
 msgid "Intranet Author"
 msgstr ""
 
-#: inc/roles.php:126
-msgctxt "Lecteur Intranet"
+#: inc/roles.php:130
 msgid "Intranet Reader"
 msgstr ""
 
@@ -168,12 +166,10 @@ msgstr ""
 
 #: templates/archive.php:20
 #, php-format
-msgctxt "Publié dans: %s"
 msgid "Published in: %s"
 msgstr ""
 
-#: inc/helpers.php:130
-msgctxt "En lire plus"
+#: inc/helpers.php:138
 msgid "Read More"
 msgstr ""
 
