@@ -63,8 +63,7 @@ if ( ! function_exists( 'intranet_cat' ) ) {
 
 }
 function thfo_intranet_pre_get( $query ) {
-	$cpt = get_post_type();
-	if( ( $query->is_post_type_archive( 'intranet' ) && empty( $query->query_vars['suppress_filters'] ) )) {
+	if( ( $query->is_tax( 'intranet_cat') || $query->is_post_type_archive( 'intranet' ) && empty( $query->query_vars['suppress_filters'] ) )) {
 		$query->set( 'post_type', array(
 			'intranet'
 		) );
