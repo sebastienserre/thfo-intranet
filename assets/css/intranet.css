@@ -1,12 +1,13 @@
+.post-type-archive-intranet .intranet-detail::after {
+  content: "-----------------------------------------";
+}
+
 .main-intranet {
   margin: 0 auto;
   width: 1120px;
 }
 .main-intranet .read-more {
   display: block;
-}
-.main-intranet .intranet-detail::after {
-  content: "-----------------------------------------";
 }
 
 /*# sourceMappingURL=intranet.css.map */

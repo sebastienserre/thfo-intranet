@@ -64,11 +64,13 @@ function add_cap_admin(){
 		'manage_intranet_cat',
 		'edit_intranet_cat',
 		'delete_intranet_cat',
+		'read_intranet_cat'
 	);
 
 	foreach ( $roles as $role ) {
 		$role_administrateur = get_role( $role );
 		foreach ( $capabilities_admin as $capabilitie_admin ) {
+			$role_administrateur->remove_cap( $capabilitie_admin );
 			$role_administrateur->add_cap( $capabilitie_admin );
 		}
 	}
@@ -96,6 +98,7 @@ function add_role_author() {
 		'manage_intranet_cat'        => true,
 		'edit_intranet_cat'          => true,
 		'delete_intranet_cat'        => true,
+		'read_intranet_cat' => true,
 	);
 	add_role( 'intranet_author', __( 'Intranet Author', 'thfo-intranet' ), $capabilities );
 }
@@ -122,6 +125,7 @@ function add_role_reader() {
 		'manage_intranet_cat'        => false,
 		'edit_intranet_cat'          => false,
 		'delete_intranet_cat'        => false,
+		'read_intranet_cat' => true,
 	);
 	add_role( 'intranet_reader', __( 'Intranet Reader', 'thfo-intranet' ), $capabilities );
 }

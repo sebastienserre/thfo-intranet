@@ -50,13 +50,22 @@ if ( ! function_exists( 'thfo_intranet' ) ) {
 			'edit_private_posts'     => 'edit_private_intranets',
 			'delete_private_posts'   => 'delete_private_intranets',
 		);
+
+		$rewrite = array(
+			'slug'                  => 'intranet',
+			'with_front'            => true,
+			'pages'                 => true,
+			'feeds'                 => true,
+		);
+
 		$args         = array(
 			'label'               => __( 'Intranet', 'thfo-intranet' ),
 			'description'         => __( 'Intranet', 'thfo-intranet' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title', 'editor', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes' ),
+			'taxonomies'            => array( 'intranet_cat' ),
 			'hierarchical'        => true,
-			'public'              => false,
+			'public'              => true,
 			'show_ui'             => true,
 			'show_in_menu'        => true,
 			'menu_position'       => 5,
@@ -67,6 +76,7 @@ if ( ! function_exists( 'thfo_intranet' ) ) {
 			'has_archive'         => true,
 			'exclude_from_search' => true,
 			'publicly_queryable'  => true,
+			'rewrite'               => $rewrite,
 			'capabilities'        => $capabilities,
 			'show_in_rest'        => true,
 		);

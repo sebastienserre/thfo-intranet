@@ -7,6 +7,7 @@ use function ob_get_clean;
 use function ob_start;
 use function ThfoIntranet\helpers\check_access;
 use function ThfoIntranet\helpers\has_access;
+use function wp_list_categories;
 use function wp_login_form;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,9 +19,28 @@ function intranet(){
 	check_access();
 
 	ob_start();
+	$posts = get_posts( array(
+	        'post_types' => 'intranet',
+    ));
+    foreach ( $posts as $post ){
+        echo $post->ID . '<br />';
+    }
 	?>
 	<div>
-		Welcome on the Intranet
+        <ul>
+        <?php
+        wp_list_categories(
+	        array(
+		        'taxonomy'           => 'intranet_cat',
+		        'show_count'         => 1,
+		        'style'              => 'list',
+		        'title_li'           => '',
+		        'use_desc_for_title' => 1
+	        ),
+        );
+        ?>
+        </ul>
+
 	</div>
 	<?php
 	return ob_get_clean();

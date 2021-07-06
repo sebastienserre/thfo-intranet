@@ -93,6 +93,11 @@ function template_chooser( $template ){
 	if ( is_post_type_archive() ){
 	    return get_template_hierarchy( 'archive' );
     }
+
+	if ( is_singular( 'intranet' ) ){
+	    return get_template_hierarchy( 'single' );
+    }
+
 	return $template;
 }
 
@@ -115,6 +120,9 @@ add_filter( 'template_include', 'ThfoIntranet\helpers\template_chooser' );
 
 function get_cat_list( $post_id ){
 	$list = get_the_terms( $post_id, 'intranet_cat' );
+	if ( empty( $list ) ) {
+	    return;
+    }
 	$categories = array();
 	foreach ( $list as $term ){
 	    $categories[] = '<a href="' . get_term_link( $term->term_id ) . '">' . $term->name . '</a>';

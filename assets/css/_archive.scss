@@ -1,12 +1,17 @@
-.main-intranet{
+.post-type-archive-intranet {
+			.intranet-detail {
+			&::after {
+				content: '-----------------------------------------';
+			}
+		}
+	}
+
+
+.main-intranet {
 	margin: 0 auto;
 	width: 1120px;
+
 	.read-more {
 		display: block;
-	}
-	.intranet-detail {
-		&::after {
-			content: '-----------------------------------------';
-		}
 	}
 }

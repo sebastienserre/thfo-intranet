@@ -31,10 +31,17 @@ if ( ! function_exists( 'intranet_cat' ) ) {
 			'items_list_navigation'      => __( 'Items list navigation', 'thfo-intranet' ),
 		);
 		$capabilities = array(
+			'read_terms'   => 'read_intranet_cat',
 			'manage_terms' => 'manage_intranet_cat',
 			'edit_terms'   => 'edit_intranet_cat',
 			'delete_terms' => 'delete_intranet_cat',
 			'assign_terms' => 'edit_intranet',
+		);
+
+		$rewrite = array(
+			'slug'                       => 'intranet-cat',
+			'with_front'                 => true,
+			'hierarchical'               => true,
 		);
 		$args         = array(
 			'labels'            => $labels,
@@ -45,6 +52,8 @@ if ( ! function_exists( 'intranet_cat' ) ) {
 			'show_in_nav_menus' => true,
 			'show_tagcloud'     => true,
 			'capabilities'      => $capabilities,
+			'rewrite'           => $rewrite,
+			'show_in_rest'        => true,
 		);
 		register_taxonomy( 'intranet_cat', array( 'intranet' ), $args );
 
@@ -53,3 +62,12 @@ if ( ! function_exists( 'intranet_cat' ) ) {
 	add_action( 'init', 'intranet_cat', 0 );
 
 }
+function thfo_intranet_pre_get( $query ) {
+	$cpt = get_post_type();
+	if( ( $query->is_post_type_archive( 'intranet' ) && empty( $query->query_vars['suppress_filters'] ) )) {
+		$query->set( 'post_type', array(
+			'intranet'
+		) );
+	}
+}
+add_action( 'pre_get_posts', 'thfo_intranet_pre_get' );
