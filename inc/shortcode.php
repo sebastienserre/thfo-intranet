@@ -16,9 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_shortcode( 'intranet', 'ThfoIntranet\shortcode\intranet');
 function intranet(){
-	check_access();
+
 
 	ob_start();
+	check_access();
+	if ( has_access() ) {
 	?>
 	<div>
         <ul>
@@ -37,5 +39,6 @@ function intranet(){
 
 	</div>
 	<?php
+    }
 	return ob_get_clean();
 }
