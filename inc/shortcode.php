@@ -19,12 +19,6 @@ function intranet(){
 	check_access();
 
 	ob_start();
-	$posts = get_posts( array(
-	        'post_types' => 'intranet',
-    ));
-    foreach ( $posts as $post ){
-        echo $post->ID . '<br />';
-    }
 	?>
 	<div>
         <ul>
