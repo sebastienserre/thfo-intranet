@@ -57,6 +57,13 @@ function define_constant() {
 	define( 'THFO_INTRANET_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 	define( 'THFO_INTRANET_PLUGIN_DIR', untrailingslashit( THFO_INTRANET_PLUGIN_PATH ) );
 	define( 'THFO_INTRANET_CUST_INC', THFO_INTRANET_PLUGIN_PATH . 'inc/' );
+
+	$uploads_dir       = wp_upload_dir();
+	$protected_folder = '/intranet/protected';
+	$media_uploads_dir = $uploads_dir['basedir'] . $protected_folder;
+
+	define( 'THFO_MEDIA_UPLOAD', $media_uploads_dir );
+	define( 'THFO_MEDIA_UPLOAD_URL', $uploads_dir['baseurl'] . $protected_folder );
 }
 
 add_action( 'plugins_loaded', 'ThfoIntranet\load_files' );
@@ -84,25 +91,18 @@ function activate() {
 	$htaccessContent .= "RewriteRule ^(.*)$ {$intranet_path}get-files.php?file=$1 [QSA,L]\n";
 	$htaccessContent .= "# END intranet Plugin\n";
 
-	$uploads_dir       = wp_upload_dir();
-	$protected_folder = '/intranet/protected';
-	$media_uploads_dir = $uploads_dir['basedir'] . $protected_folder;
-
-	define( 'THFO_MEDIA_UPLOAD', $media_uploads_dir );
-	define( 'THFO_MEDIA_UPLOAD_URL', $uploads_dir['baseurl'] . $protected_folder );
-
 	// if media folder doesn't exist create it
-	if ( ! file_exists( $media_uploads_dir ) ) {
-		mkdir( $media_uploads_dir, 0777, true );
+	if ( ! file_exists( THFO_MEDIA_UPLOAD ) ) {
+		mkdir( THFO_MEDIA_UPLOAD, 0777, true );
 	}
 
 	// check if htaccess does not exists
-	if ( ! file_exists( $media_uploads_dir . '/.htaccess' ) ) {
-		file_put_contents( $media_uploads_dir . '/' . '.htaccess', $htaccessContent );
+	if ( ! file_exists( THFO_MEDIA_UPLOAD . '/.htaccess' ) ) {
+		file_put_contents( THFO_MEDIA_UPLOAD . '/' . '.htaccess', $htaccessContent );
 	}
 	// if htaccess already exists
-	if ( file_exists( $media_uploads_dir . '/.htaccess' ) && preg_match( '/(# BEGIN intranet Plugin)(.*?)(# END intranet Plugin)/is', file_get_contents( $media_uploads_dir . '/.htaccess' ) ) == 0 ) {
-		file_put_contents( $media_uploads_dir . '/.htaccess', $htaccessContent, FILE_APPEND | LOCK_EX );
+	if ( file_exists( THFO_MEDIA_UPLOAD . '/.htaccess' ) && preg_match( '/(# BEGIN intranet Plugin)(.*?)(# END intranet Plugin)/is', file_get_contents( THFO_MEDIA_UPLOAD . '/.htaccess' ) ) == 0 ) {
+		file_put_contents( THFO_MEDIA_UPLOAD . '/.htaccess', $htaccessContent, FILE_APPEND | LOCK_EX );
 	}
 }
 
