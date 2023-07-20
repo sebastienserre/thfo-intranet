@@ -109,7 +109,7 @@ function activate() {
 add_filter( 'upload_dir', 'ThfoIntranet\chg_media_dir' );
 function chg_media_dir( $uploads ) {
 
-	$uploads_dir       = wp_upload_dir();
+/*	$uploads_dir       = wp_upload_dir();
 	$protected_folder = '/intranet/protected';
 	$media_uploads_dir = $uploads_dir['basedir'] . $protected_folder;
 
@@ -119,7 +119,7 @@ function chg_media_dir( $uploads ) {
 	}
 	if ( ! defined( 'THFO_MEDIA_UPLOAD_URL' ) ){
 		define( 'THFO_MEDIA_UPLOAD_URL', $uploads_dir['baseurl'] . $protected_folder );
-	}
+	}*/
 
 	if ( ! empty( $_REQUEST['data'] ) && 'intranet' === get_post_type( $_REQUEST['data']['wp-refresh-post-lock']['post_id'] ) ) {
 		$uploads['path'] = THFO_MEDIA_UPLOAD . $uploads['subdir'];
