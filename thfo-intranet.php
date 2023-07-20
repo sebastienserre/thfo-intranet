@@ -108,6 +108,10 @@ function activate() {
 
 add_filter( 'upload_dir', 'ThfoIntranet\chg_media_dir' );
 function chg_media_dir( $uploads ) {
+	if ( ! defined( 'THFO_MEDIA_UPLOAD' ) ){
+		define_constant();
+	}
+
 	if ( ! empty( $_REQUEST['data'] ) && 'intranet' === get_post_type( $_REQUEST['data']['wp-refresh-post-lock']['post_id'] ) ) {
 		$uploads['path'] = THFO_MEDIA_UPLOAD . $uploads['subdir'];
 		$uploads['url']  = THFO_MEDIA_UPLOAD_URL . $uploads['subdir'];
