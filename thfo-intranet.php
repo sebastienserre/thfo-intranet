@@ -81,7 +81,7 @@ function load_files() {
 }
 
 
-add_action( 'plugins_loaded', 'ThfoIntranet\activate' );
+//add_action( 'plugins_loaded', 'ThfoIntranet\activate' );
 function activate() {
 	// prepare htaccess Content
 	$intranet_path = THFO_INTRANET_PLUGIN_PATH;
@@ -106,7 +106,7 @@ function activate() {
 	}
 }
 
-add_filter( 'upload_dir', 'ThfoIntranet\chg_media_dir' );
+//add_filter( 'upload_dir', 'ThfoIntranet\chg_media_dir' );
 function chg_media_dir( $uploads ) {
 
 /*	$uploads_dir       = wp_upload_dir();
@@ -129,7 +129,7 @@ function chg_media_dir( $uploads ) {
 	return $uploads;
 }
 
-add_filter( 'wp_handle_upload_prefilter', 'ThfoIntranet\pre_upload' );
+//add_filter( 'wp_handle_upload_prefilter', 'ThfoIntranet\pre_upload' );
 function pre_upload( $file ) {
 	add_filter( 'upload_dir', 'ThfoIntranet\custom_upload_dir' );
 
