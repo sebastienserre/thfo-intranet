@@ -22,7 +22,7 @@ function intranet(){
 	check_access();
 	if ( has_access() ) {
 	?>
-	<div>
+	<div class="intranet-menu">
         <ul>
         <?php
         wp_list_categories(
